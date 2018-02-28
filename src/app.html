@@ -1,0 +1,18 @@
+<template>
+  <require from="bootstrap/css/bootstrap.css"></require>
+  <require from="./actor-detail"></require>
+  <require from="./actor-pol"></require>
+
+  <div class="container">
+    <h1>FUMAKI</h1>
+    <div class="row">
+      <div class="col-md-4" repeat.for="actor of actors">
+        <actor-detail actor.bind="actor"></actor-detail>
+      </div>
+    </div>
+    <div class="row">
+      <actor-pol actors.bind="actors"></actor-pol>
+    </div>
+  </div>
+
+</template>
