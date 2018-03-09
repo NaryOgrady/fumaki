@@ -1,0 +1,9 @@
+<template>
+  <require from="./actor-card"></require>
+
+  <div class="row">
+    <div repeat.for="actor of actors" class="col-sm-4">
+      <actor-card actor.bind="actor"></actor-card>
+    </div>
+  </div>
+</template>

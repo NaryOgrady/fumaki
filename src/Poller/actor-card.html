@@ -1,0 +1,17 @@
+<template>
+  <div class="thumbnail">
+    <img src="${actor.image}" alt="${actor.name}">
+    <div class="caption">
+      <h3>${actor.name}</h3>
+      <p>${actor.desc}</p>
+      <p>
+        <button class="btn ${actor.vote === 'f' ? 'btn-primary' : 'btn-default'}" 
+          click.trigger="handleVote('f')">Fuck</button>
+        <button class="btn ${actor.vote === 'm' ? 'btn-primary' : 'btn-default'}" 
+          click.trigger="handleVote('m')">Marry</button>
+        <button class="btn ${actor.vote === 'k' ? 'btn-primary' : 'btn-default'}" 
+          click.trigger="handleVote('k')">Kill</button>
+      </p>
+    </div>
+  </div>
+</template>
