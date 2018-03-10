@@ -20,6 +20,10 @@ Thumbs.db
 .idea
 .vscode
 
+# Debuggers
+.chrome
+
+
 # Dependencies
 node_modules
 

@@ -1,12 +1,12 @@
 import 'fetch';
-import { HttpClient } from 'aurelia-fetch-client';
 import { EventAggregator } from 'aurelia-event-aggregator';
 import { inject } from 'aurelia-framework';
+import { ActorService} from '../Services/actor-service';
 
-@inject(HttpClient, EventAggregator)
+@inject(ActorService, EventAggregator)
 export class Poller {
-  constructor(httpClient, ea) {
-    this.httpClient = httpClient;
+  constructor(actorService, ea) {
+    this.actorService = actorService;
     this.ea = ea;
     this.actors = [];
 
@@ -14,12 +14,9 @@ export class Poller {
   }
 
   activate() {
-    this.httpClient.fetch('http://192.168.50.4:5000/fumaki-api/actors/random/3')
-      .then(response => {
-        return response.json();
-      })
-      .then(data => {
-        this.actors = this.processActorData(data.actors);
+    this.actorService.getActorData(3)
+      .then(actors => {
+        this.actors = actors;
       });
   }
 
